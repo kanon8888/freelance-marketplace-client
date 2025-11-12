@@ -8,6 +8,9 @@ import RoodLayout from './layout/RoodLayout.jsx';
 import Home from './components/Home/Home.jsx';
 import AllJobs from './components/AllJobs/AllJobs.jsx';
 import AuthProvider from './context/AuthProvider.jsx';
+import Register from './components/Register/Register.jsx';
+import AddAJobs from './components/AddAJobs/AddAJobs.jsx';
+import MyAcceptedTasks from './components/MyAcceptedTasks/MyAcceptedTasks.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +24,18 @@ const router = createBrowserRouter([
       {
         path: 'allJobs',
         Component: AllJobs
+      },
+      {
+        path: 'register',
+        Component: Register
+      },
+      {
+        path: 'addaJob',
+        Component: AddAJobs
+      },
+      {
+        path: 'myAcceptedTasks',
+        Component: MyAcceptedTasks
       }
     ]
   },
