@@ -1,11 +1,22 @@
 // components/Navbar/Navbar.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
     const { user, signOutUser } = React.useContext(AuthContext);
     const navigate = useNavigate();
+
+    const [darkMode, setDarkMode] = useState(false);
+
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+        if (!darkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    };
 
     const links = (
         <>
@@ -62,44 +73,14 @@ const Navbar = () => {
 
     const handleLogout = () => {
         signOutUser()
-            .then(() => navigate('/register')) // logout হলে register page এ redirect
+            .then(() => navigate('/register'))
             .catch(err => console.error(err));
     };
 
     return (
-        <nav className="navbar bg-base-100 shadow-sm px-4">
-            {/* Left: Logo + Mobile Dropdown */}
+        <nav className="navbar bg-base-100 dark:bg-gray-800 dark:text-white shadow-sm px-4">
+            {/* Left: Logo */}
             <div className="navbar-start">
-                <div className="dropdown">
-                    <div tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
-                        </svg>
-                    </div>
-                    <ul
-                        tabIndex={-1}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-                    >
-                        {links}
-                        {!user && (
-                            <li>
-                                <NavLink
-                                    to="/register"
-                                    className="px-3 py-1 rounded hover:bg-blue-500 hover:text-white transition-colors"
-                                >
-                                    Login / Register
-                                </NavLink>
-                            </li>
-                        )}
-                    </ul>
-                </div>
-
                 <NavLink to="/" className="btn btn-ghost text-xl">
                     Market<span className="text-blue-600">Place</span>
                 </NavLink>
@@ -110,15 +91,39 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
 
-            {/* Right-end: Login / Logout */}
-            <div className="navbar-end">
+            {/* Right-end: User Info + Dark Mode */}
+            <div className="navbar-end flex items-center gap-3 relative">
+                {/* Dark Mode Toggle */}
+                <button
+                    onClick={toggleDarkMode}
+                    className="btn btn-sm bg-gray-200 dark:bg-gray-700 dark:text-white"
+                >
+                    {darkMode ? 'Light Mode' : 'Dark Mode'}
+                </button>
+
                 {user ? (
-                    <button onClick={handleLogout} className="btn">
-                        Logout
-                    </button>
+                    <>
+                        {/* User photo */}
+                        {user.photoURL && (
+                            <div className="relative group">
+                                <img
+                                    src={user.photoURL}
+                                    alt="User"
+                                    className="w-10 h-10 rounded-full border border-gray-300 cursor-pointer"
+                                />
+                                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full bg-gray-800 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    {user.displayName || 'User'}
+                                </span>
+                            </div>
+                        )}
+
+                        <button onClick={handleLogout} className="btn btn-sm">
+                            Logout
+                        </button>
+                    </>
                 ) : (
                     <NavLink to="/register" className="btn">
-                        Login 
+                        Login / Register
                     </NavLink>
                 )}
             </div>
