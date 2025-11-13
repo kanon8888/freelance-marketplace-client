@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-200 py-10 mt-16">
       <div className="max-w-7xl mx-auto px-5 grid md:grid-cols-4 gap-8">
-        {/* About */}
+        
         <div>
           <h3 className="text-xl font-bold mb-3">MarketPlace</h3>
           <p className="text-gray-400">
@@ -13,7 +13,7 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Quick Links */}
+        
         <div>
           <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
           <ul className="space-y-2">
@@ -24,7 +24,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Contact Info */}
+        
         <div>
           <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
           <p className="text-gray-400">Email: support@marketplace.com</p>
@@ -32,7 +32,7 @@ const Footer = () => {
           <p className="text-gray-400">Address: Dhaka, Bangladesh</p>
         </div>
 
-        {/* Social */}
+        
         <div>
           <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
           <div className="flex gap-3">
