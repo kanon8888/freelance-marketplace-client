@@ -1,4 +1,4 @@
-// src/components/AllJobs/AllJobs.jsx
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -6,10 +6,10 @@ const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Backend থেকে data load
+  
   useEffect(() => {
     axios
-      .get("http://localhost:3000/freelance") // তোমার backend endpoint
+      .get("http://localhost:3000/freelance") 
       .then((res) => {
         setJobs(res.data);
         setLoading(false);

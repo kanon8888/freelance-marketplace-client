@@ -1,4 +1,4 @@
-// src/components/AddAJobs/AddAJobs.jsx
+
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
@@ -52,7 +52,7 @@ const AddAJobs = () => {
       <h2 className="text-3xl font-bold text-center mb-6">Add a New Job</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Title */}
+        
         <div>
           <label className="block mb-1 font-semibold">Title</label>
           <input
@@ -65,7 +65,7 @@ const AddAJobs = () => {
           />
         </div>
 
-        {/* Posted By */}
+        
         <div>
           <label className="block mb-1 font-semibold">Posted By</label>
           <input
@@ -76,7 +76,7 @@ const AddAJobs = () => {
           />
         </div>
 
-        {/* Email */}
+        
         <div>
           <label className="block mb-1 font-semibold">User Email</label>
           <input
@@ -87,7 +87,7 @@ const AddAJobs = () => {
           />
         </div>
 
-        {/* Category */}
+       
         <div>
           <label className="block mb-1 font-semibold">Category</label>
           <select
@@ -105,7 +105,7 @@ const AddAJobs = () => {
           </select>
         </div>
 
-        {/* Summary */}
+        
         <div>
           <label className="block mb-1 font-semibold">Summary</label>
           <textarea
@@ -119,7 +119,7 @@ const AddAJobs = () => {
           ></textarea>
         </div>
 
-        {/* Cover Image URL */}
+        
         <div>
           <label className="block mb-1 font-semibold">Cover Image (URL)</label>
           <input
@@ -133,7 +133,7 @@ const AddAJobs = () => {
           />
         </div>
 
-        {/* Submit Button */}
+        
         <button type="submit" className="btn btn-primary w-full">
           Add Job
         </button>
