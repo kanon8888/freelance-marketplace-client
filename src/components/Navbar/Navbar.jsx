@@ -65,6 +65,19 @@ const Navbar = () => {
                         >
                             My Accepted Tasks
                         </NavLink>
+
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/updateJob"
+                            className={({ isActive }) =>
+                                "px-3 py-1 rounded hover:bg-blue-500 hover:text-white transition-colors" +
+                                (isActive ? " font-bold underline" : "")
+                            }
+                        >
+                            Update
+                        </NavLink>
+                        
                     </li>
                 </>
             )}

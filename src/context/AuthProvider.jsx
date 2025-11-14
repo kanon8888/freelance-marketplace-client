@@ -1,5 +1,6 @@
+// src/context/AuthProvider.jsx
 import React, { useEffect, useState } from "react";
-import { AuthContext } from "./AuthContext"; // ✅ এখান থেকে আসবে
+import { AuthContext } from "./AuthContext"; // ✅ AuthContext import
 import { 
   createUserWithEmailAndPassword, 
   GoogleAuthProvider, 

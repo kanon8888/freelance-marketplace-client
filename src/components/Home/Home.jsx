@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // 🔹 corrected
 
 const Home = () => {
-    
+    const navigate = useNavigate(); // 🔹 hook
+
     const slides = [
         {
             title: "Hire Top Freelancers Effortlessly",
@@ -35,13 +37,12 @@ const Home = () => {
         return () => clearInterval(interval);
     }, []);
 
-    
     const [jobs, setJobs] = useState([]);
     const [loadingJobs, setLoadingJobs] = useState(true);
 
     useEffect(() => {
         axios
-            .get("http://localhost:3000/freelance") 
+            .get("http://localhost:3000/freelance")
             .then((res) => {
                 setJobs(res.data);
                 setLoadingJobs(false);
@@ -54,13 +55,14 @@ const Home = () => {
 
     return (
         <div>
-            
+            {/* Slider Section */}
             <div className="relative w-full h-[500px] overflow-hidden mb-10">
                 {slides.map((slide, idx) => (
                     <div
                         key={idx}
-                        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ${idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
-                            } ${slide.bg} text-white`}
+                        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ${
+                            idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+                        } ${slide.bg} text-white`}
                     >
                         <div className="text-center px-4">
                             <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fadeIn">
@@ -80,20 +82,20 @@ const Home = () => {
                         </div>
                     </div>
                 ))}
-                
                 <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex gap-2">
                     {slides.map((_, idx) => (
                         <span
                             key={idx}
-                            className={`w-3 h-3 rounded-full cursor-pointer transition-all ${idx === currentSlide ? "bg-white scale-125" : "bg-gray-300"
-                                }`}
+                            className={`w-3 h-3 rounded-full cursor-pointer transition-all ${
+                                idx === currentSlide ? "bg-white scale-125" : "bg-gray-300"
+                            }`}
                             onClick={() => setCurrentSlide(idx)}
                         ></span>
                     ))}
                 </div>
             </div>
 
-            
+            {/* Featured Jobs Section */}
             <div className="px-5">
                 <h2 className="text-3xl font-bold text-center mb-6">Featured Jobs</h2>
                 {loadingJobs ? (
@@ -120,33 +122,34 @@ const Home = () => {
                                 <p className="text-sm text-gray-500">
                                     {job.summary?.slice(0, 80)}...
                                 </p>
+                                {/* 🔹 Fixed Navigate */}
+                                <button
+                                    onClick={() => navigate(`/viewDetails/${job._id}`)}
+                                    className="mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+                                >
+                                    View Details
+                                </button>
                             </div>
                         ))}
                     </div>
                 )}
             </div>
 
-            
+            {/* Why Choose Us Section */}
             <div className="my-16 px-5">
                 <h2 className="text-3xl font-bold text-center mb-6">Why Choose Us?</h2>
                 <div className="grid md:grid-cols-3 gap-6 text-center">
                     <div className="p-6 border rounded shadow hover:shadow-lg">
                         <h3 className="text-xl font-semibold mb-2">Reliable Experts</h3>
-                        <p className="text-gray-600">
-                            Only verified professionals for your projects.
-                        </p>
+                        <p className="text-gray-600">Only verified professionals for your projects.</p>
                     </div>
                     <div className="p-6 border rounded shadow hover:shadow-lg">
                         <h3 className="text-xl font-semibold mb-2">Fast & Easy</h3>
-                        <p className="text-gray-600">
-                            Post a job and get responses instantly.
-                        </p>
+                        <p className="text-gray-600">Post a job and get responses instantly.</p>
                     </div>
                     <div className="p-6 border rounded shadow hover:shadow-lg">
                         <h3 className="text-xl font-semibold mb-2">Secure Platform</h3>
-                        <p className="text-gray-600">
-                            Your data and payments are safe with us.
-                        </p>
+                        <p className="text-gray-600">Your data and payments are safe with us.</p>
                     </div>
                 </div>
             </div>
