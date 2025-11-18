@@ -8,7 +8,7 @@ const MyAcceptedTasks = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch Accepted Tasks
+  
   useEffect(() => {
     if (!user?.email) return;
 
@@ -25,7 +25,7 @@ const MyAcceptedTasks = () => {
       });
   }, [user]);
 
-  // Common Delete Function
+  
   const deleteTask = async (id, message) => {
     try {
       await axios.delete(`http://localhost:3000/acceptedTasks/${id}`);
@@ -38,14 +38,14 @@ const MyAcceptedTasks = () => {
     }
   };
 
-  // DONE Button
+  
   const handleDone = (id) => {
-    deleteTask(id, "✅ Task marked as DONE!");
+    deleteTask(id, " Task marked as DONE!");
   };
 
-  // CANCEL Button
+  
   const handleCancel = (id) => {
-    deleteTask(id, "❌ Task cancelled!");
+    deleteTask(id, " Task cancelled!");
   };
 
   if (loading) {
@@ -87,20 +87,20 @@ const MyAcceptedTasks = () => {
                 {task.summary?.slice(0, 80)}...
               </p>
 
-              {/* Buttons */}
+              
               <div className="flex justify-between mt-4">
                 <button
                   onClick={() => handleDone(task._id)}
                   className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
                 >
-                  ✅ DONE
+                   DONE
                 </button>
 
                 <button
                   onClick={() => handleCancel(task._id)}
                   className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
                 >
-                  ❌ CANCEL
+                   CANCEL
                 </button>
               </div>
             </div>
