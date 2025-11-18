@@ -28,10 +28,11 @@ const ViewDetails = () => {
         <div className="p-5 max-w-3xl mx-auto">
             <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
             <img
-                src={job.coverImage ? `http://localhost:3000/images/${job.coverImage}` : "https://via.placeholder.com/600x400"}
-                alt={job.title}
-                className="w-full h-96 object-cover rounded mb-4"
-            />
+                                    src={job.coverImage || "https://via.placeholder.com/400x250"}
+                                    alt={job.title}
+                                    className="w-full h-48 object-cover rounded mb-3"
+                                />
+           
             <p className="text-gray-600 mb-2"><strong>Category:</strong> {job.category}</p>
             <p className="text-gray-600 mb-2"><strong>Posted By:</strong> {job.postedBy}</p>
             <p className="text-gray-700">{job.summary}</p>

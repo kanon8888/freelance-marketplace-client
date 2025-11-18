@@ -32,10 +32,16 @@ const AllJobs = () => {
           <div key={job._id} className="border rounded-xl shadow-md p-4 hover:shadow-lg flex flex-col justify-between">
             <div>
               <img
+                                    src={job.coverImage || "https://via.placeholder.com/400x250"}
+                                    alt={job.title}
+                                    className="w-full h-48 object-cover rounded mb-3"
+                                />
+
+             {/*   <img
                 src={job.coverImage ? `http://localhost:3000/images/${job.coverImage}` : "https://via.placeholder.com/400x250"}
                 alt={job.title}
                 className="w-full h-48 object-cover rounded-lg mb-3"
-              />
+              /> */}
               <h2 className="text-xl font-semibold mb-1">{job.title}</h2>
               <p className="text-gray-600 mb-2">{job.category}</p>
               <p className="text-sm text-gray-500 mb-2"><strong>Posted By:</strong> {job.postedBy}</p>
