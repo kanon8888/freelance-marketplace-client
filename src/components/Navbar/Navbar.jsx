@@ -1,4 +1,4 @@
-// components/Navbar/Navbar.jsx
+
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
@@ -92,21 +92,21 @@ const Navbar = () => {
 
     return (
         <nav className="navbar bg-base-100 dark:bg-gray-800 dark:text-white shadow-sm px-4">
-            {/* Left: Logo */}
+            
             <div className="navbar-start">
                 <NavLink to="/" className="btn btn-ghost text-xl">
                     Market<span className="text-blue-600">Place</span>
                 </NavLink>
             </div>
 
-            {/* Center: Desktop Menu */}
+            
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
 
-            {/* Right-end: User Info + Dark Mode */}
+           
             <div className="navbar-end flex items-center gap-3 relative">
-                {/* Dark Mode Toggle */}
+                
                 <button
                     onClick={toggleDarkMode}
                     className="btn btn-sm bg-gray-200 dark:bg-gray-700 dark:text-white"
@@ -116,7 +116,7 @@ const Navbar = () => {
 
                 {user ? (
                     <>
-                        {/* User photo */}
+                      
                         {user.photoURL && (
                             <div className="relative group">
                                 <img

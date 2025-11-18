@@ -4,7 +4,7 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
 const UpDate = () => {
-    const { id } = useParams(); // URL থেকে job ID নেবে
+    const { id } = useParams(); 
     const navigate = useNavigate();
 
     const [job, setJob] = useState({
@@ -16,7 +16,7 @@ const UpDate = () => {
     });
     const [loading, setLoading] = useState(true);
 
-    // 🔹 Existing job data load করা
+    
     useEffect(() => {
         axios
             .get(`http://localhost:3000/freelance/${id}`)
@@ -31,13 +31,13 @@ const UpDate = () => {
             });
     }, [id]);
 
-    // 🔹 Handle input change
+  
     const handleChange = (e) => {
         const { name, value } = e.target;
         setJob({ ...job, [name]: value });
     };
 
-    // 🔹 Submit updated job
+    
     const handleUpdate = (e) => {
         e.preventDefault();
         axios
@@ -64,7 +64,7 @@ const UpDate = () => {
         <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow mt-10">
             <Toaster position="top-center" />
             <h1 className="text-2xl font-bold text-center mb-6 text-blue-600">
-                ✏️ Update Job
+                 Update Job
             </h1>
 
             <form onSubmit={handleUpdate} className="space-y-4">

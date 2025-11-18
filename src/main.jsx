@@ -12,7 +12,7 @@ import ViewDetails from './components/ViewDetails/ViewDetails.jsx';
 import AuthProvider from './context/AuthProvider.jsx';
 import UpDate from './components/update/UpDate.jsx';
 
-// Routes
+
 const router = createBrowserRouter([
   {
     path: "/",

@@ -1,4 +1,4 @@
-// components/Register/Register.jsx
+
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router';
@@ -17,7 +17,7 @@ const Register = () => {
         signInWithGoogle()
             .then(result => {
                 console.log(result.user);
-                navigate('/'); // Google login এর পরে home redirect
+                navigate('/'); 
             })
             .catch(err => setError(err.message));
     };
@@ -26,7 +26,7 @@ const Register = () => {
         e.preventDefault();
         setError('');
 
-        // ✅ Name validation: uppercase + lowercase + minimum 6 characters
+        
         const uppercaseRegex = /[A-Z]/;
         const lowercaseRegex = /[a-z]/;
 
@@ -43,11 +43,11 @@ const Register = () => {
             return;
         }
 
-        // ✅ Proceed with registration
+        
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
-                navigate('/'); // successful register redirect
+                navigate('/'); 
             })
             .catch(err => setError(err.message));
     };

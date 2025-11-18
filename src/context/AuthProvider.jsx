@@ -1,6 +1,6 @@
-// src/context/AuthProvider.jsx
+
 import React, { useEffect, useState } from "react";
-import { AuthContext } from "./AuthContext"; // ✅ AuthContext import
+import { AuthContext } from "./AuthContext"; 
 import { 
   createUserWithEmailAndPassword, 
   GoogleAuthProvider, 
