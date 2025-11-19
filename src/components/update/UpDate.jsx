@@ -19,7 +19,7 @@ const UpDate = () => {
     
     useEffect(() => {
         axios
-            .get(`http://localhost:3000/freelance/${id}`)
+            .get(`https://freelance-marketplace-server-gilt.vercel.app/freelance/${id}`)
             .then((res) => {
                 setJob(res.data);
                 setLoading(false);
@@ -41,7 +41,7 @@ const UpDate = () => {
     const handleUpdate = (e) => {
         e.preventDefault();
         axios
-            .put(`http://localhost:3000/freelance/${id}`, job)
+            .put(`https://freelance-marketplace-server-gilt.vercel.app/freelance/${id}`, job)
             .then(() => {
                 toast.success(" Job updated successfully!");
                 setTimeout(() => navigate("/allJobs"), 1000);

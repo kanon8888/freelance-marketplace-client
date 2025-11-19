@@ -39,7 +39,7 @@ const Home = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3000/freelance")
+            .get("https://freelance-marketplace-server-gilt.vercel.app/freelance")
             .then((res) => {
                 setJobs(res.data);
                 setLoadingJobs(false);

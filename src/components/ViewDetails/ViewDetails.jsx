@@ -10,7 +10,7 @@ const ViewDetails = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/freelance/${id}`)
+        axios.get(`https://freelance-marketplace-server-gilt.vercel.app/freelance/${id}`)
             .then(res => {
                 setJob(res.data);
                 setLoading(false);

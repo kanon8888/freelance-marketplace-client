@@ -13,7 +13,7 @@ const MyAcceptedTasks = () => {
     if (!user?.email) return;
 
     axios
-      .get(`http://localhost:3000/acceptedTasks?userEmail=${user.email}`)
+      .get(`https://freelance-marketplace-server-gilt.vercel.app/acceptedTasks?userEmail=${user.email}`)
       .then((res) => {
         setTasks(res.data);
         setLoading(false);
@@ -28,7 +28,7 @@ const MyAcceptedTasks = () => {
   
   const deleteTask = async (id, message) => {
     try {
-      await axios.delete(`http://localhost:3000/acceptedTasks/${id}`);
+      await axios.delete(`https://freelance-marketplace-server-gilt.vercel.app/acceptedTasks/${id}`);
 
       setTasks((prev) => prev.filter((task) => task._id !== id));
       toast.success(message);

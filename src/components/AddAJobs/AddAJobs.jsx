@@ -35,7 +35,7 @@ const AddAJobs = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:3000/freelance", newJob);
+      const res = await axios.post("https://freelance-marketplace-server-gilt.vercel.app/freelance", newJob);
       if (res.data.insertedId || res.data.acknowledged) {
         toast.success("Job added successfully!");
         setFormData({ title: "", category: "", summary: "", coverImage: "" });

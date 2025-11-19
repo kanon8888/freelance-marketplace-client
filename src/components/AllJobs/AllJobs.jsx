@@ -14,7 +14,7 @@ const AllJobs = () => {
   
   useEffect(() => {
     axios
-      .get("http://localhost:3000/freelance")
+      .get("https://freelance-marketplace-server-gilt.vercel.app/freelance")
       .then((res) => {
         setJobs(res.data);
         setLoading(false);
@@ -33,7 +33,7 @@ const AllJobs = () => {
     }
 
     try {
-      await axios.post("http://localhost:3000/acceptedTasks", {
+      await axios.post("https://freelance-marketplace-server-gilt.vercel.app/acceptedTasks", {
         ...job,
         userEmail: user.email, 
       });

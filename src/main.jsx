@@ -11,6 +11,7 @@ import MyAcceptedTasks from './components/MyAcceptedTasks/MyAcceptedTasks.jsx';
 import ViewDetails from './components/ViewDetails/ViewDetails.jsx';
 import AuthProvider from './context/AuthProvider.jsx';
 import UpDate from './components/update/UpDate.jsx';
+import NotFound from './NotFound/NotFound.jsx';
 
 
 const router = createBrowserRouter([
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "myAcceptedTasks", Component: MyAcceptedTasks },
       { path: "viewDetails/:id", Component: ViewDetails },
       { path: "/updateJob", Component: UpDate },
+      { path: "*", Component: NotFound}
     ],
   },
 ]);
