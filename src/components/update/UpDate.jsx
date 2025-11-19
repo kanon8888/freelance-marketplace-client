@@ -43,7 +43,7 @@ const UpDate = () => {
         axios
             .put(`http://localhost:3000/freelance/${id}`, job)
             .then(() => {
-                toast.success("✅ Job updated successfully!");
+                toast.success(" Job updated successfully!");
                 setTimeout(() => navigate("/allJobs"), 1000);
             })
             .catch((err) => {
