@@ -87,7 +87,7 @@ const Home = () => {
                 ) : jobs.length === 0 ? (
                     <p className="text-center text-gray-500">No jobs available!</p>
                 ) : (
-                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                         {jobs.map((job) => (
                             <div key={job._id} className="border p-4 rounded shadow">
                                 <img
