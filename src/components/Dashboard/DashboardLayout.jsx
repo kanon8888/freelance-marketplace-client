@@ -51,6 +51,18 @@ const DashboardLayout = () => {
                         <MdPerson className="text-lg" />
                         <span>My Profile</span>
                     </NavLink>
+                    <li>
+                        <NavLink
+                            to="/dashboard/update"
+                            className={({ isActive }) =>
+                                "px-3 py-1 rounded hover:bg-blue-500 hover:text-white text-white transition-colors" +
+                                (isActive ? " font-bold underline" : "")
+                            }
+                        >
+                            Update
+                        </NavLink>
+
+                    </li>
 
                     <NavLink
                         to="/dashboard/my-jobs"
@@ -88,6 +100,20 @@ const DashboardLayout = () => {
 
                 {/* Page Content */}
                 <main className="p-4 flex-1 overflow-auto">
+                    <div className="mb-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h1 className="text-3xl font-bold text-center text-primary">
+                            Welcome to Dashboard
+                        </h1>
+
+
+                        <p className="text-2xl text-gray-500 text-center dark:text-gray-400 mt-2">
+                            📅 {new Date().toLocaleDateString("en-GB", {
+                                day: "numeric",
+                                month: "long",
+                                year: "numeric",
+                            })}
+                        </p>
+                    </div>
                     <Outlet />
                 </main>
             </div>

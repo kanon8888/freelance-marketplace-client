@@ -33,6 +33,15 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink
+                    to='/about'
+                    
+                >
+                    About
+                </NavLink>
+                
+            </li>
+            <li>
+                <NavLink
                     to="/allJobs"
                     className={({ isActive }) =>
                         "px-3 py-1 rounded hover:bg-blue-500 hover:text-white transition-colors" +
@@ -67,21 +76,10 @@ const Navbar = () => {
                         </NavLink>
 
                     </li>
+
                     <li>
                         <NavLink
-                            to="/updateJob"
-                            className={({ isActive }) =>
-                                "px-3 py-1 rounded hover:bg-blue-500 hover:text-white transition-colors" +
-                                (isActive ? " font-bold underline" : "")
-                            }
-                        >
-                            Update
-                        </NavLink>
-                        
-                    </li>
-                    <li>
-                        <NavLink
-                        to="/dashboard"
+                            to="/dashboard"
 
                         >
                             Dashboard
@@ -100,21 +98,21 @@ const Navbar = () => {
 
     return (
         <nav className="navbar bg-base-100 dark:bg-gray-800 dark:text-white shadow-sm px-4">
-            
+
             <div className="navbar-start">
                 <NavLink to="/" className="btn btn-ghost text-xl">
                     Market<span className="text-blue-600">Place</span>
                 </NavLink>
             </div>
 
-            
+
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
 
-           
+
             <div className="navbar-end flex items-center gap-3 relative">
-                
+
                 <button
                     onClick={toggleDarkMode}
                     className="btn btn-sm bg-gray-200 dark:bg-gray-700 dark:text-white"
@@ -124,7 +122,7 @@ const Navbar = () => {
 
                 {user ? (
                     <>
-                      
+
                         {user.photoURL && (
                             <div className="relative group">
                                 <img

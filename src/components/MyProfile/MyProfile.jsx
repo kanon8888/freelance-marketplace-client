@@ -30,7 +30,7 @@ const MyProfile = () => {
   return (
     <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
       <Toaster position="top-center" />
-      <h2 className="text-2xl font-bold mb-4 text-primary">
+      <h2 className="text-2xl font-bold mb-4 text-primary text-center">
         My Profile
       </h2>
 
