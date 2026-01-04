@@ -79,6 +79,14 @@ const Navbar = () => {
                         </NavLink>
                         
                     </li>
+                    <li>
+                        <NavLink
+                        to="/dashboard"
+
+                        >
+                            Dashboard
+                        </NavLink>
+                    </li>
                 </>
             )}
         </>
